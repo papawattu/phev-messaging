@@ -1,6 +1,6 @@
 {
   "name": "phev-mqtt",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "mqtt wrapper",
   "main": "./lib/index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "test-unit": "cross-env NODE_ENV=test DEBUG=true mocha --require babel-polyfill --compilers js:babel-core/register --recursive ./src/**/*.spec.js",
     "test-watch": "cross-env NODE_ENV=test DEBUG=true mocha --watch --require babel-polyfill --compilers js:babel-core/register --recursive ./src/**/*.spec.js",
     "build": "babel src -d lib",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
