@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs'
 
-const PhevMqtt = ( { mqtt, uri } ) => {
+const PhevMqtt = ( { mqtt, uri, options } ) => {
     
-    const client = mqtt.connect(uri)
+    const client = mqtt.connect(uri, options)
     
     const send = ( topic, message ) => { 
         client.publish(topic, message) 
