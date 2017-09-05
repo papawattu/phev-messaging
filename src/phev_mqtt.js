@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs'
 
-const phevMqtt = ( { mqtt, uri } ) => {
+const PhevMqtt = ( { mqtt, uri } ) => {
     
     const client = mqtt.connect(uri)
     
@@ -24,4 +24,4 @@ const phevMqtt = ( { mqtt, uri } ) => {
         unsubscribe: unsubscribe 
     }
 }
-export default phevMqtt 
+export default PhevMqtt 
