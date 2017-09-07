@@ -1,6 +1,6 @@
 {
   "name": "phev-mqtt",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "mqtt wrapper",
   "main": "./lib/index.js",
   "scripts": {
