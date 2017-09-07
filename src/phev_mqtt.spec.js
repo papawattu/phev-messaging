@@ -14,6 +14,13 @@ describe('mqtt wrapper', () => {
         
         assert(spy.withArgs('test').calledOnce)
     })
+    it('Should default mqtt', (done) => {
+        
+        const sut = PhevMqtt({uri: 'mqtt://test.mosquitto.org'})
+        sut.subscribe('test')
+        assert(sut.client)
+        sut.client.on('connect', () => done())
+    })
     it('Should send and receive buffer', (done) => {
         
         const sut = PhevMqtt({mqtt, uri: ''})

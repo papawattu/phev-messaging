@@ -5,7 +5,7 @@ let debug = process.env.DEBUG ? true : false
 
 const log = debug ? message => console.log(message) : undefined
 
-const PhevMqtt = ( { mqtt=_mqtt, uri, options } ) => {
+const PhevMqtt = ( { mqtt = _mqtt, uri, options } ) => {
     
     log(`MQTT Uri ${uri} ${JSON.stringify(options)}`)
 
@@ -34,7 +34,9 @@ const PhevMqtt = ( { mqtt=_mqtt, uri, options } ) => {
         send: send, 
         messages: messages, 
         subscribe: subscribe, 
-        unsubscribe: unsubscribe 
+        unsubscribe: unsubscribe, 
+        connected: client.connected,
+        client: client
     }
 }
 export default PhevMqtt 
