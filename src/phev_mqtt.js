@@ -5,11 +5,11 @@ let debug = process.env.DEBUG ? true : false
 
 const log = debug ? message => console.log(message) : undefined
 
-const PhevMqtt = ( { mqtt, uri, options } ) => {
+const PhevMqtt = ( { mqtt=_mqtt, uri, options } ) => {
     
     log(`MQTT Uri ${uri} ${JSON.stringify(options)}`)
 
-    const client = (mqtt || _mqtt).connect(uri, options)
+    const client = mqtt.connect(uri, options)
 
     client.on('connected', ()=> log('Connected to ' + uri))
     client.on('error', err => log(err))
