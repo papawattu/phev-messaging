@@ -7,6 +7,13 @@ const assert = chai.assert;
 
 describe('mqtt wrapper', () => {
     
+    it('Should connect to correct uri', () => {
+        
+        const spy = sinon.spy(mqtt,'connect')
+        const sut = PhevMqtt({mqtt, uri: 'test'})
+        
+        assert(spy.withArgs('test').calledOnce)
+    })
     it('Should send and receive buffer', (done) => {
         
         const sut = PhevMqtt({mqtt, uri: ''})

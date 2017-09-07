@@ -9,12 +9,12 @@ const PhevMqtt = ( { mqtt, uri, options } ) => {
     
     log(`MQTT Uri ${uri} ${JSON.stringify(options)}`)
 
+    const client = mqtt.connect(uri, options)
+
     client.on('connected', ()=> log('Connected to ' + uri))
     client.on('error', err => log(err))
     client.on('message', (topic, msg) => log(`Received >> topic ${topic} >> ${JSON.stringify(msg)}`))
 
-    const client = mqtt.connect(uri, options)
-    
     const send = ( topic, message ) => { 
         log(`Sending >> topic ${topic} >> message ${JSON.stringify(message)}`)
         client.publish(topic, message) 
