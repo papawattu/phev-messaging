@@ -1,4 +1,7 @@
+import _mqtt from 'mqtt'
 import { Observable } from 'rxjs'
+
+const log = process.env.DEBUG ? message => console.log(message) : undefined
 
 const PhevMqtt = ( { mqtt, uri, options } ) => {
     
