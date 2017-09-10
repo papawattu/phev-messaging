@@ -25,7 +25,7 @@
   "dependencies": {
     "end-of-stream": "^1.4.0",
     "mqtt": "^2.12.1",
-    "phev-utils": "github:papawattu/phev-utils",
+    "phev-utils": "github:papawattu/phev-utils#master",
     "rxjs": "^5.4.3"
   },
   "devDependencies": {

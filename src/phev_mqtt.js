@@ -1,6 +1,6 @@
 import _mqtt from 'mqtt'
 import { Observable } from 'rxjs'
-import log from 'phev-utils'
+import { log } from 'phev-utils'
 
 const PhevMqtt = ( { mqtt = _mqtt, uri, options } ) => {
     
