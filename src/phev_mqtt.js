@@ -1,22 +1,19 @@
 import _mqtt from 'mqtt'
 import { Observable } from 'rxjs'
-
-let debug = process.env.DEBUG ? true : false
-
-const log = debug ? message => console.log(message) : undefined
+import log from 'phev-utils'
 
 const PhevMqtt = ( { mqtt = _mqtt, uri, options } ) => {
     
-    log(`MQTT Uri ${uri} ${JSON.stringify(options)}`)
+    log.info(`Starting MQTT Uri ${uri} ${JSON.stringify(options)}`)
 
     const client = mqtt.connect(uri, options)
 
-    client.on('connected', ()=> log('Connected to ' + uri))
-    client.on('error', err => log(err))
-    client.on('message', (topic, msg) => log(`Received >> topic ${topic} >> ${JSON.stringify(msg)}`))
+    client.on('connected', ()=> log.debug('Connected to ' + uri))
+    client.on('error', err => log.error(err))
+    client.on('message', (topic, msg) => log.debug(`Received >> topic ${topic} >> ${JSON.stringify(msg)}`))
 
     const send = ( topic, message ) => { 
-        log(`Sending >> topic ${topic} >> message ${JSON.stringify(message)}`)
+        log.debug(`Sending >> topic ${topic} >> message ${JSON.stringify(message)}`)
         client.publish(topic, message) 
         return message 
     }
