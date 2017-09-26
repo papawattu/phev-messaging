@@ -1,12 +1,12 @@
 {
   "name": "phev-messaging",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "mqtt wrapper",
   "main": "./lib/index.js",
   "scripts": {
     "test": "npm run test-unit",
     "start": "node index.js",
-    "test-unit": "cross-env NODE_ENV=test DEBUG=true mocha --require babel-polyfill --compilers js:babel-core/register --recursive ./src/**/*.spec.js",
+    "test-unit": "cross-env NODE_ENV=test mocha --require babel-polyfill --compilers js:babel-core/register --recursive ./src/**/*.spec.js",
     "test-watch": "cross-env NODE_ENV=test DEBUG=true mocha --watch --require babel-polyfill --compilers js:babel-core/register --recursive ./src/**/*.spec.js",
     "build": "babel src -d lib --ignore *.spec.js",
     "prepublish": "npm run build",
