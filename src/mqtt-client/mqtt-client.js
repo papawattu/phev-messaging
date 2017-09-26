@@ -1,7 +1,7 @@
 import _mqtt from 'mqtt'
 import { log } from 'phev-utils'
 
-const MqttClient = ({ mqtt = _mqtt, mqttUri, topicName = 'phev/receive', subscriptionName = 'phev/send' } = {}) => {
+const MqttClient = ({ mqtt = _mqtt, mqttUri, topicName = 'topic', subscriptionName = 'subscription' } = {}) => {
 
     let client = null 
 
@@ -23,7 +23,7 @@ const MqttClient = ({ mqtt = _mqtt, mqttUri, topicName = 'phev/receive', subscri
             log.debug('Registered Handler')
 
             client.subscribe(subscriptionName)
-            client.on('message', (topic, message) => handler(message))
+            client.on('message', (subscription, message) => subscription === subscriptionName ? handler(message) : undefined)
         },
         publish: message => client.publish(topicName, message)
     }
