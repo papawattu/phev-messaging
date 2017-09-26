@@ -26,10 +26,17 @@ const MqttClient = ({ mqtt = _mqtt, mqttUri, topicName = 'topic', subscriptionNa
             client.removeListener('message', handler)
             client.on('message', (subscription, message) => {
                 log.debug(`MQTT received message ${subscription} : ${JSON.stringify(message)}`)
-                subscription === subscriptionName ? handler(message) : undefined
+                if(subscription === subscriptionName) {
+                    handler(message)
+                } else {
+                    log.debug('Ignoring not subscribed to ' + subscription)
+                }
             })
         },
-        publish: message => client.publish(topicName, message)
+        publish: message => {
+            log.debug('MQTT Publish to ' + topicName + ' :' + JSON.stringify(message))
+            client.publish(topicName, message)
+        }
     }
 }
 
