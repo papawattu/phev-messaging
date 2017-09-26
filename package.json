@@ -23,10 +23,9 @@
   },
   "homepage": "https://github.com/papawattu/phev-mqtt#readme",
   "dependencies": {
-    "end-of-stream": "^1.4.0",
+    "@google-cloud/pubsub": "^0.14.2",
     "mqtt": "^2.12.1",
-    "phev-utils": "github:papawattu/phev-utils#master",
-    "rxjs": "^5.4.3"
+    "phev-utils": "github:papawattu/phev-utils"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
