@@ -6,9 +6,13 @@ const SocketClient = ({ client = new net.Socket(), host, port } = {}) => ({
     start: () => new Promise((resolve, reject) => {
         client.on('error', err => {
             log.error(err)
-            reject(err)
+            return reject(err)
         })
         if(!client.writable) client.connect(port, host)
+        client.on('connect', () => {
+            log.debug(`Socket connected to ${host} ${port}`)
+            return resolve(client)
+        })
     }),
     registerHandler: handler => client.on('data', handler),
 })

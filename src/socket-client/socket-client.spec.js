@@ -23,10 +23,16 @@ describe('Socket Connection', () => {
 
         assert.isNotNull(sut)
     })
-    it('Should start', () => {
-
+    it('Should start', done => {
+        client.writable = false
         sut.start()
-        assert(client.connect.calledWith(8080, '192.168.8.46'))
+            .then(() => {
+                assert(client.connect.calledWith(8080, '192.168.8.46'))
+                done()
+            }, err => console.log(err)
+        ) 
+        client.on.withArgs('connect').yield()
+            
     })
     it('Should write', () => {
         client.writable = true
