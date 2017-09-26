@@ -2,30 +2,16 @@ import { log } from 'phev-utils'
 
 const MessagingClient = ({ messaging }) => {
 
-    let _handler = null
-    let _started = false
+    const registerHandler = handler => messaging.registerHandler(handler)
+    
+    const start = () => messaging.start()
 
-    const registerHandler = handler => {
-        if(_handler === null) {
-            _handler = handler
-            messaging.registerHandler(handler)
-        } else {
-            log.warn('Can only register one handler')
-        }
-    }
-    const start = () => {
-        if(!_started) {
-            _started = true
-            return messaging.start()
-        } else {
-            log.warn('Start already called once')
-            return Promise.resolve()
-        }
-    }
+    const publish = message => messaging.publish(message)
+        
     return {
         start,
         registerHandler,
-        publish: messaging.publish
+        publish
     }
 }
 

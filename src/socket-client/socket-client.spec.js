@@ -10,6 +10,8 @@ client.write = sinon.stub()
 client.writable = true
 client.on = sinon.stub()
 client.removeListener = sinon.stub()
+client.removeAllListeners = sinon.stub()
+
 const handler = sinon.stub()
 
 describe('Socket Connection', () => {

@@ -18,7 +18,7 @@ const MqttClient = ({ mqtt = _mqtt, mqttUri, topicName = 'topic', subscriptionNa
                 log.info('MQTT connected')
                 resolve(client)
             })
-    }),
+        }),
         registerHandler: handler => {
             log.debug('Registered Handler')
 
