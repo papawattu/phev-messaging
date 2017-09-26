@@ -8,7 +8,7 @@ const SocketClient = ({ client = new net.Socket(), host, port } = {}) => ({
             log.error(err)
             reject(err)
         })
-        client.connect(port, host)
+        if(!client.writable) client.connect(port, host)
     }),
     registerHandler: handler => client.on('data', handler),
 })

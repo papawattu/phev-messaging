@@ -1,7 +1,7 @@
 {
   "name": "phev-messaging",
   "version": "1.0.19",
-  "description": "mqtt wrapper",
+  "description": "Shared Messaging Implementations",
   "main": "./lib/index.js",
   "scripts": {
     "test": "npm run test-unit",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/papawattu/phev-mqtt.git"
+    "url": "git+https://github.com/papawattu/phev-messaging.git"
   },
   "author": "Jamie Nuttall",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/papawattu/phev-mqtt/issues"
+    "url": "https://github.com/papawattu/phev-messaging/issues"
   },
-  "homepage": "https://github.com/papawattu/phev-mqtt#readme",
+  "homepage": "https://github.com/papawattu/phev-messaging#readme",
   "dependencies": {
     "@google-cloud/pubsub": "^0.14.2",
     "mqtt": "^2.12.1",
