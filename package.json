@@ -1,6 +1,6 @@
 {
   "name": "phev-messaging",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "mqtt wrapper",
   "main": "./lib/index.js",
   "scripts": {
