@@ -23,6 +23,7 @@ const MqttClient = ({ mqtt = _mqtt, mqttUri, topicName = 'topic', subscriptionNa
             log.debug('Registered Handler')
 
             client.subscribe(subscriptionName)
+            client.removeListener('message', handler)
             client.on('message', (subscription, message) => {
                 log.debug(`MQTT received message ${subscription} : ${JSON.stringify(message)}`)
                 subscription === subscriptionName ? handler(message) : undefined

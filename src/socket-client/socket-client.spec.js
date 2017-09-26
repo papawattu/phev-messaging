@@ -9,6 +9,7 @@ client.connect = sinon.stub()
 client.write = sinon.stub()
 client.writable = true
 client.on = sinon.stub()
+client.removeListener = sinon.stub()
 const handler = sinon.stub()
 
 describe('Socket Connection', () => {
@@ -57,5 +58,16 @@ describe('Socket Connection', () => {
         sut.registerHandler(handler)
         
         assert(handler.calledWith(Buffer.from([0xf2, 0x0a, 0x00, 0x01, 0x02, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xf0])))
+    })
+    it('Should not register handler more than once', () => {
+        
+        sut.registerHandler(handler)
+        
+        assert(client.on.calledWith('data', handler))
+
+        sut.registerHandler(handler)
+
+        assert(client.removeListener.calledWith('data',handler),'Should remove existing listener')
+        
     })
 })

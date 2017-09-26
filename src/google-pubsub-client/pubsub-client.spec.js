@@ -8,6 +8,7 @@ const topic = {}
 const publisher = {}
 const subscription = {}
 subscription.on = sinon.stub()
+subscription.removeListener = sinon.stub()
 topic.publisher = sinon.stub()
 topic.publisher.returns(publisher)
 

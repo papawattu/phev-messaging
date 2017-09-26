@@ -14,7 +14,10 @@ const SocketClient = ({ client = new net.Socket(), host, port } = {}) => ({
             return resolve(client)
         })
     }),
-    registerHandler: handler => client.on('data', handler),
+    registerHandler: handler => {
+        client.removeListener('data', handler)
+        client.on('data', handler)
+    },
 })
 
 export default SocketClient

@@ -19,7 +19,7 @@ const PubSubClient = ({ pubSub = PubSub(), topicName = 'receive', subscriptionNa
     const registerHandler = handler => {
 
         const subscription = pubSub.subscription(subscriptionName)
-
+        subscription.removeListener('message', handler)
         subscription.on('message', message => { 
             log.debug('Incoming message ' + JSON.stringify(message.data))
             
