@@ -21,8 +21,8 @@ const MessagingClient = ({ messaging }) => {
         }
     }
     return {
-        start: messaging.start,
-        registerHandler: handler => messaging.registerHandler,
+        start,
+        registerHandler,
         publish: messaging.publish
     }
 }
