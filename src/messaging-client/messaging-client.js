@@ -1,3 +1,5 @@
+import { log } from 'phev-utils'
+
 const MessagingClient = ({ messaging }) => {
 
     let _handler = null
