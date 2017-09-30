@@ -6,10 +6,13 @@ const MessagingClient = ({ messaging }) => {
     
     const start = () => messaging.start()
 
+    const stop = () => messaging.stop()
+    
     const publish = message => messaging.publish(message)
         
     return {
         start,
+        stop,
         registerHandler,
         publish
     }
