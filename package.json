@@ -1,6 +1,6 @@
 {
   "name": "phev-messaging",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "Shared Messaging Implementations",
   "main": "./lib/index.js",
   "scripts": {

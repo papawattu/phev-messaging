@@ -37,7 +37,7 @@ const MqttClient = ({ mqtt = _mqtt, mqttUri, topicName = 'topic', subscriptionNa
             log.debug('MQTT Publish to ' + topicName + ' :' + JSON.stringify(message))
             client.publish(topicName, message)
         },
-        stop: () => new Promise.resolve()
+        stop: () => Promise.resolve()
     }
 }
 

@@ -10,9 +10,8 @@ const PubSubClient = ({ pubSub = PubSub(), topicName = 'receive', subscriptionNa
         topic = pubSub.topic(topicName)
         publisher = topic.publisher();
     }
-    const stop = () => {
-        return new Promise.resolve()
-    }
+    const stop = () => Promise.resolve()
+    
     const publish = message => {
         log.debug('Publish ' + JSON.stringify(message))
         
