@@ -9,6 +9,8 @@ const PubSubClient = ({ pubSub = PubSub(), topicName = 'receive', subscriptionNa
         log.info('Started Google PubSub')
         topic = pubSub.topic(topicName)
         publisher = topic.publisher();
+
+        return Promise.resolve()
     }
     const stop = () => Promise.resolve()
     
