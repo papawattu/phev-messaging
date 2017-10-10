@@ -10,13 +10,15 @@ const SocketClient = ({ client = new net.Socket(), host, port } = {}) => ({
    
         client.on('error', err => {
             log.error(err)
-            return reject(err)
+        //    return reject(err)
         })
         client.on('connect', () => {
             log.debug(`Socket connected to ${host} ${port}`)
             return resolve(client)
         })
-        client.on('close', () => log.debug('***close'))
+        client.on('close', () => {
+            log.debug('Connection closed')
+        })
         client.on('drain', () => log.debug('***drain'))
         client.on('end', () => log.debug('***end'))
         client.on('lookup', () => log.debug('***lookup'))
@@ -28,7 +30,10 @@ const SocketClient = ({ client = new net.Socket(), host, port } = {}) => ({
         client.removeListener('data', handler)
         client.on('data', handler)
     },
-    stop: Promise.resolve()
+    stop: () => new Promise((resolve, reject) => {
+        client.destroy()
+        client.once('close', () => resolve())
+    })
 })
 
 export default SocketClient
