@@ -22,9 +22,11 @@
     "url": "https://github.com/papawattu/phev-messaging/issues"
   },
   "homepage": "https://github.com/papawattu/phev-messaging#readme",
-  "dependencies": {
+  "optionalDependencies": {
     "@google-cloud/pubsub": "^0.14.2",
     "mqtt": "^2.12.1",
+  },
+  "dependencies": {
     "phev-utils": "github:papawattu/phev-utils"
   },
   "devDependencies": {
