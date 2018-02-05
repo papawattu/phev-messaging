@@ -8,10 +8,7 @@
     "start": "node index.js",
     "test-unit": "cross-env NODE_ENV=test mocha --require babel-polyfill --compilers js:babel-core/register --recursive ./src/**/*.spec.js",
     "test-watch": "cross-env NODE_ENV=test DEBUG=true mocha --watch --require babel-polyfill --compilers js:babel-core/register --recursive ./src/**/*.spec.js",
-    "build": "babel src -d lib --ignore *.spec.js",
-    "prepublish": "npm run build",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm run build" 
+    "build": "babel src -d lib --ignore *.spec.js" 
   },
   "repository": {
     "type": "git",
